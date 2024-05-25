@@ -5,7 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class HomePage {
     protected WebDriver driver;
@@ -17,13 +20,16 @@ public class HomePage {
 
     @FindBy(css = ".profile_info>h2")
     public WebElement welcomeElm;
+
     @FindBy(css = ".menu-workspace")
     public WebElement workspaceNav;
 
     @FindBy(css = "a[href$=Projects]")
     public WebElement processesMenu;
+
     @FindBy(css = "a[href$='/']")
     public WebElement dashboardMenu;
+
     @FindBy(css = "a[href$=Characteristics]")
     public WebElement characteristicsMenu;
 
@@ -33,31 +39,31 @@ public class HomePage {
         return parent.getAttribute("class").contains("active");
     }
 
-    //public ProcessesPage goToProcesses() {
-    //    if (!isParentExpanded(workspaceNav)) {
-    //        workspaceNav.click();
-    //    }
-    //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    //    processesMenu.click();
-    //    return new ProcessesPage(driver);
-    //}
-//
-    //public CharacteristicsPage goToCharacteristics() {
-    //    if (!isParentExpanded(workspaceNav)) {
-    //        workspaceNav.click();
-    //    }
-    //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    //    characteristicsMenu.click();
-    //    return new CharacteristicsPage(driver);
-    //}
-    //public Dashboard goToDashboard() {
-    //    if (!isParentExpanded(workspaceNav)) {
-    //        workspaceNav.click();
-    //    }
-    //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    //    dashboardMenu.click();
-    //    return new Dashboard(driver);
-    //}
+    public ProcessesPage goToProcesses() {
+        if (!isParentExpanded(workspaceNav)) {
+            workspaceNav.click();
+        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        processesMenu.click();
+        return new ProcessesPage(driver);
+    }
+
+    public CharacteristicsPage goToCharacteristics() {
+        if (!isParentExpanded(workspaceNav)) {
+            workspaceNav.click();
+        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        characteristicsMenu.click();
+        return new CharacteristicsPage(driver);
+    }
+    public Dashboard goToDashboard() {
+        if (!isParentExpanded(workspaceNav)) {
+            workspaceNav.click();
+        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        dashboardMenu.click();
+        return new Dashboard(driver);
+    }
 
     public HomePage assertWelcomeElementIsShow() {
         Assert.assertTrue(welcomeElm.isDisplayed(), "Welcome element is not shown.");

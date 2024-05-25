@@ -51,9 +51,9 @@ public class LoginPage {
         return new HomePage(driver);
     }
 
-    public AccountPage clickRegister() {
+    public RegisterPage clickRegister() {
         registerLnk.click();
-        return new AccountPage(driver);
+        return new RegisterPage(driver);
     }
 
     public LoginPage submitLoginWithFailure() {
@@ -75,4 +75,8 @@ public class LoginPage {
         Assert.assertTrue(loginErrors.stream().anyMatch(validationError -> validationError.getText().equals("Invalid login attempt.")));
         return this;
     }
+
+
+
+
 }

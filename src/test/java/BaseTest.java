@@ -17,7 +17,6 @@ public class BaseTest {
         driver.get(new Config().getApplicationURL());
     }
 
-
     @AfterMethod
     public void baseAfterMethod() {
         driver.quit();
