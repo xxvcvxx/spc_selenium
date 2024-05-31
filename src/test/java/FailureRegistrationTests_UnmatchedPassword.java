@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 
 import java.util.UUID;
 
-public class FailureRegistrationTests_UnmatchedPasse extends BaseTest {
+public class FailureRegistrationTests_UnmatchedPassword extends BaseTest {
     @Test
     public void failureRegistration_WrongPasswordWithoutUppercase()
     {

@@ -1,5 +1,6 @@
 package Pages;
 
+import config.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,12 +17,12 @@ public class ProcessesPage extends HomePage {
     @FindBy(css = ".title_left>h3")
     public WebElement header;
 
-    @FindBy(css = "a[class='btn btn-success'")
+    @FindBy(css = "a.btn.btn-success")
     //@FindBy(css="button[type=")
     public WebElement createProcessButton;
 
     public ProcessesPage assertProcessesURL() {
-        Assert.assertEquals(driver.getCurrentUrl(), "http://localhost:4444/Projects");
+        Assert.assertEquals(driver.getCurrentUrl(), new Config().getApplicationURL() + "/Projects");
         return this;
     }
 

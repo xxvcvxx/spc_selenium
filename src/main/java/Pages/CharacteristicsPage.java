@@ -1,14 +1,13 @@
 package Pages;
 
+import config.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import javax.xml.xpath.XPath;
-
-public class CharacteristicsPage extends HomePage{
+public class CharacteristicsPage extends HomePage {
     private String GENERIC_CHARACTERISTIC_ROW_XPATH = "//td[text()='%s']/..";
 
     public CharacteristicsPage(WebDriver driver) {
@@ -18,11 +17,11 @@ public class CharacteristicsPage extends HomePage{
     @FindBy(css = ".title_left>h3")
     public WebElement header;
 
-    @FindBy(css="a[class='btn btn-success'")
+    @FindBy(css = "a[class='btn btn-success'")
     public WebElement createNewCharButton;
 
     public CharacteristicsPage assertCharacteristicsPage() {
-        Assert.assertEquals(driver.getCurrentUrl(), "http://localhost:4444/Characteristics");
+        Assert.assertEquals(driver.getCurrentUrl(), new Config().getApplicationURL() + "/Characteristics");
         return this;
     }
 

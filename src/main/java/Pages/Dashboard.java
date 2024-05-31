@@ -1,5 +1,6 @@
 package Pages;
 
+import config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,7 +19,7 @@ public class Dashboard {
     public WebElement header;
 
     public Dashboard assertDashboardURL() {
-        Assert.assertEquals(driver.getCurrentUrl(), "http://localhost:4444/");
+        Assert.assertEquals(driver.getCurrentUrl(), new Config().getApplicationURL()+"/");
         return this;
     }
 

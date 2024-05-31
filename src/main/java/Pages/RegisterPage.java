@@ -2,7 +2,6 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.bidi.log.Log;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -95,7 +94,7 @@ public class RegisterPage {
         Assert.assertTrue(loginErrors.stream().anyMatch(validationError -> validationError.getText().equals("Passwords must have at least one uppercase ('A'-'Z').")));
         return this;
     }
-    public RegisterPage assertIncorrectPasswordOnListWithoutUnMach()//popraw
+    public RegisterPage assertIncorrectPasswordOnListWithoutUnmatchedPassword()//popraw
     {
         //The Password must be at least 6 and at max 100 characters long.
         Assert.assertTrue(loginErrors.stream().anyMatch(validationError -> validationError.getText().equals("The password and confirmation password do not match.")));
